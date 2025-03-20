@@ -3,7 +3,9 @@ name = "crawler"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "docling>=2.28.0",
+]
 
 [tool.uv.workspace]
 members = ["database"]
