@@ -1,13 +1,13 @@
 from docling.document_converter import DocumentConverter
+from utils.sitemap import get_sitemap_urls
 
-source = "/Users/mustafayasin/Desktop/2411.14974v2.pdf"
 converter = DocumentConverter()
-print("I was here")
-result = converter.convert(source)
 
-# Save to a file instead of printing to terminal
-output_path = "/Users/mustafayasin/Desktop/converted_document.md"
-with open(output_path, "w", encoding="utf-8") as file:
-    file.write(result.document.export_to_markdown())
+sitemap_urls = get_sitemap_urls("https://ds4sd.github.io/docling/")
+conv_results_iter = converter.convert_all(sitemap_urls)
 
-print(f"Markdown saved to {output_path}")
+docs = []
+for result in conv_results_iter:
+    if result.document:
+        document = result.document
+        docs.append(document)
