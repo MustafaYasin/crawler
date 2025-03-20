@@ -8,4 +8,4 @@ dependencies = [
 ]
 
 [tool.uv.workspace]
-members = ["database"]
+members = ["database", "cli"]
